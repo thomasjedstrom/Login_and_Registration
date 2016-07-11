@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Friends</title>
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- FLASH MESSAGES -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{message}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+
+<!-- Login -->
+<div id="login">
+  <form action="/registereduser/<email>">
+    <label for="email" class="w3-label">Email:</label>
+      <input type="text" name="email" id="email" class="w3-input w3-border w3-round-large">
+    <label for="email" class="w3-label">Password:</label>
+      <input type="text" name="pw" id="pw" class="w3-input w3-border w3-round-large">
+    <input type="submit" value="Login" class="w3-btn w3-round w3- w3-green">
+  </form>
+</div>
+
+
+
+<!-- Register -->
+<div id="register">
+  <form action='/newuser' method='POST' class="w3-container">
+    <label for="first_name" class="w3-label">First Name:</label>
+      <input type="text" name="first_name" id="first_name" class="w3-input w3-border w3-round-large">
+    <label for="last_name" class="w3-label">Last Name:</label>
+      <input type="text" name="last_name" id="last_name" class="w3-input w3-border w3-round-large">
+    <label for="email" class="w3-label">Email:</label>
+      <input type="text" name="email" id="email" class="w3-input w3-border w3-round-large">
+    <label for="email" class="w3-label">Password:</label>
+      <input type="text" name="pw" id="pw" class="w3-input w3-border w3-round-large">
+    <label for="email" class="w3-label">Confirm Password:</label>
+      <input type="text" name="cpw" id="cpw" class="w3-input w3-border w3-round-large">
+    <input type="submit" value="Add" class="w3-btn w3-round w3- w3-green">
+  </form>
+</div>
+</body>
+</html>
