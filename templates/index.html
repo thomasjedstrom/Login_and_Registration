@@ -8,22 +8,21 @@
 <body>
 
   <!-- FLASH MESSAGES -->
+<ul class="flashes">
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-      <ul class="flashes">
-        {% for category, message in messages %}
-          <li class="{{ category }}">{{message}}</li>
-        {% endfor %}
-      </ul>
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{message}}</li>
+      {% endfor %}
     {% endif %}
   {% endwith %}
-
+</ul>
 
 <!-- Login -->
 <div id="login">
-  <form action="/registereduser/<email>">
-    <label for="email" class="w3-label">Email:</label>
-      <input type="text" name="email" id="email" class="w3-input w3-border w3-round-large">
+  <form action="/login" method="POST">
+    <label for="user_name" class="w3-label">Username:</label>
+      <input type="text" name="user_name" id="user_name" class="w3-input w3-border w3-round-large">
     <label for="email" class="w3-label">Password:</label>
       <input type="text" name="pw" id="pw" class="w3-input w3-border w3-round-large">
     <input type="submit" value="Login" class="w3-btn w3-round w3- w3-green">
@@ -34,17 +33,25 @@
 
 <!-- Register -->
 <div id="register">
-  <form action='/newuser' method='POST' class="w3-container">
+  <form action='/register' method='POST' class="w3-container">
+    <label for="user_name" class="w3-label">Username:</label>
+      <input type="text" name="user_name" id="user_name" class="w3-input w3-border w3-round-large">
+
     <label for="first_name" class="w3-label">First Name:</label>
       <input type="text" name="first_name" id="first_name" class="w3-input w3-border w3-round-large">
+
     <label for="last_name" class="w3-label">Last Name:</label>
       <input type="text" name="last_name" id="last_name" class="w3-input w3-border w3-round-large">
+
     <label for="email" class="w3-label">Email:</label>
       <input type="text" name="email" id="email" class="w3-input w3-border w3-round-large">
+
     <label for="email" class="w3-label">Password:</label>
       <input type="text" name="pw" id="pw" class="w3-input w3-border w3-round-large">
+
     <label for="email" class="w3-label">Confirm Password:</label>
       <input type="text" name="cpw" id="cpw" class="w3-input w3-border w3-round-large">
+
     <input type="submit" value="Add" class="w3-btn w3-round w3- w3-green">
   </form>
 </div>
